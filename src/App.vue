@@ -1,16 +1,22 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Balls />
+    <PathCurve />
+    <Frog />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Balls from '@/components/Balls.vue'
+import Frog from '@/components/Frog.vue'
+import PathCurve from '@/components/PathCurve'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Frog: Frog,
+    Balls: Balls,
+    PathCurve: PathCurve
   }
 }
 </script>
@@ -22,6 +28,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  background-color: yellow;
+  position: relative;
 }
 </style>

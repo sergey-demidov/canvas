@@ -1,77 +1,34 @@
 <template>
-  <canvas ref="canvas1"></canvas>
+  <canvas ref="canvas1" style="position: absolute; z-index: 20; margin: auto;"></canvas>
 </template>
 
 <script>
+import { frame, offset, level1 } from '@/lib/constants'
+
 export default {
   data () {
     return {
-      xOffset: 150,
-      yOffset: 50,
       currentPosition: 0,
       requestedFrame: 0,
-      start: [101, 79],
-      curve: [
-        [187, 101, 270, 85, 346, 120],
-        [409, 149, 434, 213, 423, 269],
-        [412, 326, 355, 368, 316, 379],
-        [264, 394, 186, 377, 154, 354],
-        [120, 330, 96, 300, 100, 245],
-        [104, 193, 151, 179, 182, 171],
-        [224, 160, 283, 169, 316, 184],
-        [344, 197, 365, 223, 364, 255],
-        [363, 293, 334, 315, 318, 321]
-      ],
+      start: level1.start,
+      curve: level1.curve,
       path: [],
       ctx: {}
     }
   },
   mounted () {
     this.canvas = this.$refs.canvas1
-    this.canvas.width = 800
-    this.canvas.height = 600
+    this.canvas.width = frame.width
+    this.canvas.height = frame.height
     this.canvas.style.border = '1px solid'
     this.ctx = this.canvas.getContext('2d')
     this.setPath()
-    this.loop = setInterval(() => this.animate(), 50)
+    this.loop = setInterval(() => this.animate(), 1000 / frame.rafe)
   },
   beforeDestroy () {
     window.clearInterval(this.loop)
   },
   methods: {
-    drawShape (ctx, xOffset = this.xOffset, yOffset = this.yOffset) {
-      ctx.beginPath()
-      ctx.strokeStyle = '#753'
-      ctx.lineWidth = 32
-      ctx.moveTo(this.start[0] + xOffset, this.start[1] + yOffset)
-      this.curve.forEach((c) => {
-        ctx.bezierCurveTo(
-          c[0] + xOffset,
-          c[1] + yOffset,
-          c[2] + xOffset,
-          c[3] + yOffset,
-          c[4] + xOffset,
-          c[5] + yOffset
-        )
-      })
-      ctx.stroke()
-
-      ctx.beginPath()
-      ctx.strokeStyle = '#975'
-      ctx.lineWidth = 28
-      ctx.moveTo(this.start[0] + xOffset, this.start[1] + yOffset)
-      this.curve.forEach((c) => {
-        ctx.bezierCurveTo(
-          c[0] + xOffset,
-          c[1] + yOffset,
-          c[2] + xOffset,
-          c[3] + yOffset,
-          c[4] + xOffset,
-          c[5] + yOffset
-        )
-      })
-      ctx.stroke()
-    },
     setPath () {
       let last = this.start.slice()
       this.path = [last]
@@ -95,16 +52,15 @@ export default {
     },
     update () {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-      this.drawShape(this.ctx)
       this.drawBall(this.ctx, this.path[this.currentPosition])
     },
     drawBall (ctx, coords) {
       this.gradient = this.ctx.createRadialGradient(
-        coords[0] + this.xOffset - 5,
-        coords[1] + this.yOffset - 5,
+        coords[0] + offset.x - 5,
+        coords[1] + offset.y - 5,
         0,
-        coords[0] + this.xOffset - 5,
-        coords[1] + this.yOffset - 5,
+        coords[0] + offset.x - 5,
+        coords[1] + offset.y - 5,
         15
       )
 
@@ -114,8 +70,8 @@ export default {
 
       ctx.beginPath()
       ctx.arc(
-        coords[0] + this.xOffset,
-        coords[1] + this.yOffset,
+        coords[0] + offset.x,
+        coords[1] + offset.y,
         15,
         0,
         Math.PI * 2
