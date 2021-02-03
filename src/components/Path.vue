@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas1"></canvas>
+  <canvas ref="path"></canvas>
 </template>
 
 <script>
@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    this.canvas = this.$refs.canvas1
+    this.canvas = this.$refs.path
     this.canvas.width = 800
     this.canvas.height = 600
     this.canvas.style.border = '1px solid'
