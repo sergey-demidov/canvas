@@ -11,7 +11,7 @@ export default {
       ctx: {},
       frogRadius: 50,
       frogPosition: {},
-      degrees: 0
+      angle: 0
     }
   },
   mounted () {
@@ -32,12 +32,12 @@ export default {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
       this.ctx.setTransform(1, 0, 0, 1, 0, 0)
       this.ctx.translate(this.frogPosition.x, this.frogPosition.y)
-      this.ctx.rotate(this.degrees)
+      this.ctx.rotate(this.angle)
       this.ctx.translate(-this.frogRadius, -this.frogRadius)
       this.ctx.drawImage(this.zuma, 0, 0, this.frogRadius * 2, this.frogRadius * 2)
     },
     mousemove (e) {
-      this.degrees = Math.atan2(e.pageX - frame.width / 2, -(e.pageY - frame.height / 2))
+      this.angle = Math.atan2(e.pageX - frame.width / 2, -(e.pageY - frame.height / 2))
       this.drawFrog()
     }
 
