@@ -9,13 +9,14 @@ export class Ball {
     this.ballCanvas = document.createElement('canvas')
     this.ballCanvas.width = 30
     this.ballCanvas.height = 30
+    this.ctx = this.ballCanvas.getContext('2d')
     this.sprite = new Sprite({
-      ctx: this.ballCanvas.getContext('2d'),
+      ctx: this.ctx,
       image,
       width: 30,
       height: 30,
       numberOfFrames: 60,
-      ticksPerFrame: 1,
+      ticks: 1,
       yOffset
     })
   }

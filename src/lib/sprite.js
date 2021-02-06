@@ -7,7 +7,7 @@ export class Sprite {
     this.yOffset = options.yOffset || 0
     this.width = options.width
     this.height = options.height
-    this.tick = options.tick || 2
+    this.tick = options.tick || 1
   }
 
   render (index = 0, angle = 0) {
