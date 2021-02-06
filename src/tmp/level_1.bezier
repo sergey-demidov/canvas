@@ -1,0 +1,25 @@
+function drawShape(ctx, xoff, yoff) {
+  ctx.beginPath();
+  ctx.moveTo(421 + xoff, 0 + yoff);
+  ctx.bezierCurveTo(502 + xoff, 36 + yoff, 623 + xoff, 113 + yoff, 690 + xoff, 195 + yoff);
+  ctx.bezierCurveTo(738 + xoff, 254 + yoff, 759 + xoff, 298 + yoff, 757 + xoff, 349 + yoff);
+  ctx.bezierCurveTo(755 + xoff, 406 + yoff, 722 + xoff, 458 + yoff, 694 + xoff, 480 + yoff);
+  ctx.bezierCurveTo(655 + xoff, 511 + yoff, 577 + xoff, 536 + yoff, 528 + xoff, 543 + yoff);
+  ctx.bezierCurveTo(396 + xoff, 563 + yoff, 317 + xoff, 546 + yoff, 218 + xoff, 512 + yoff);
+  ctx.bezierCurveTo(185 + xoff, 501 + yoff, 98 + xoff, 459 + yoff, 61 + xoff, 386 + yoff);
+  ctx.bezierCurveTo(38 + xoff, 341 + yoff, 41 + xoff, 288 + yoff, 58 + xoff, 241 + yoff);
+  ctx.bezierCurveTo(76 + xoff, 192 + yoff, 117 + xoff, 151 + yoff, 147 + xoff, 129 + yoff);
+  ctx.bezierCurveTo(195 + xoff, 93 + yoff, 256 + xoff, 86 + yoff, 334 + xoff, 102 + yoff);
+  ctx.bezierCurveTo(413 + xoff, 118 + yoff, 479 + xoff, 136 + yoff, 583 + xoff, 214 + yoff);
+  ctx.bezierCurveTo(611 + xoff, 235 + yoff, 654 + xoff, 278 + yoff, 666 + xoff, 320 + yoff);
+  ctx.bezierCurveTo(680 + xoff, 368 + yoff, 670 + xoff, 411 + yoff, 610 + xoff, 451 + yoff);
+  ctx.bezierCurveTo(575 + xoff, 474 + yoff, 501 + xoff, 491 + yoff, 450 + xoff, 493 + yoff);
+  ctx.bezierCurveTo(384 + xoff, 495 + yoff, 312 + xoff, 482 + yoff, 249 + xoff, 455 + yoff);
+  ctx.bezierCurveTo(206 + xoff, 437 + yoff, 155 + xoff, 406 + yoff, 122 + xoff, 359 + yoff);
+  ctx.bezierCurveTo(96 + xoff, 322 + yoff, 107 + xoff, 269 + yoff, 130 + xoff, 233 + yoff);
+  ctx.bezierCurveTo(155 + xoff, 195 + yoff, 196 + xoff, 174 + yoff, 238 + xoff, 167 + yoff);
+  ctx.bezierCurveTo(278 + xoff, 160 + yoff, 317 + xoff, 162 + yoff, 356 + xoff, 173 + yoff);
+  ctx.bezierCurveTo(394 + xoff, 184 + yoff, 448 + xoff, 205 + yoff, 470 + xoff, 219 + yoff);
+  ctx.bezierCurveTo(512 + xoff, 246 + yoff, 543 + xoff, 266 + yoff, 562 + xoff, 312 + yoff);
+  ctx.stroke();
+}
